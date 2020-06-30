@@ -1,6 +1,13 @@
 # Machine Learning Projects
 This repository will consists of the machine learning projects which was done by me.
-<div align='center'><h1>Iris Classification</h1></div>
+
+The machine learning projects which I have done are as follows :
+- 1. [Iris Species Classification](#iris-classification)
+
+
+
+<br><br>
+<div align='center'><h2>Iris Classification</h2></div>
 
 - Want to know more about Iris Classification, click [here](https://medium.com/@Ashok_kumar_K/iris-species-classification-machine-learning-model-8d7fa4e48f81) to see my blog on medium.
 - Want to explore my code, click [here](https://github.com/ASHOKKUMAR-K/Machine-Learning-Projects/tree/master/Iris) to have a look on my github.
