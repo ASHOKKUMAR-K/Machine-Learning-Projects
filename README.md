@@ -2,7 +2,7 @@
 This repository will consists of the machine learning projects which was done by me.
 
 The machine learning projects which I have done are as follows :
-- 1. [Iris Species Classification](#iris-classification)
+1. [Iris Species Classification](#iris-classification)
 
 
 
