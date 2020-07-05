@@ -5,7 +5,7 @@
 - [Motivation](#motivation)
 - [Data Collection](#data-collection)
 - [Data Pre processing](#data-pre-processing)
-- [Explorative Data Analysis (EDA)](#explorative-data-analysis-eda)
+- [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
 - [Feature Observations](#feature-observations)
 - [Feature Selection](#feature-selection)
 - [Building Machine Learning Model](#building-machine-learning-model)
@@ -46,7 +46,7 @@ iris_db = pd.DataFrame.from_records(data = query.fetchall(), columns = columns)
 
 - The data we collect from kaggle is already pre processed. So there is no need of any pre processing.
 
-## Explorative Data Analysis (EDA)
+## Exploratory Data Analysis (EDA)
 - Let’s group the data by species and do some descriptive statistics
 
 ```python
