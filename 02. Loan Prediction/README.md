@@ -168,7 +168,7 @@ Let's see the distribution of Loan Amount
 
 ***Loan_Amount_Term***
 
-<div align="center"><img src="images/term_counts_1.png" alt="Loan_Amount_Term Counts Gender" height="320" width="320"><img src="images/term_counts_2.png" alt="Loan_Amount_Term Counts Married" height="320" width="320"><img src="images/term_counts_3.png" alt="Loan_Amount_Term Counts Dependents" height="320" width="320"><img src="images/term_counts_4.png" alt="Loan_Amount_Term Counts Education" height="320" width="320"><img src="images/term_counts_5.png" alt="Loan_Amount_Term Counts Self_Employed" height="320" width="320"><img src="images/term_counts_6.png" alt="Loan_Amount_Term Counts Credit_History" height="320" width="320"><img src="images/term_counts_7.png" alt="Loan_Amount_Term Counts Property_Area" height="320" width="320"><img src="images/term_counts_8.png" alt="Loan_Amount_Term Counts Loan_Status" height="320" width="320"><div align="center">
+<div align="center"><img src="images/term_counts.png" alt="Loan_Amount_Term Counts Gender" height="320" width="320"></div>
 
 ***Credit_History***
 
