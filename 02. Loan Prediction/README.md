@@ -71,8 +71,7 @@ There are 12 features in the training data. Let's explore the features.
   - So we are going predict the Gender based on Dependents, ApplicantIncome, LoanAmount, and Property_Area
 - Since we are going to use scikit-learn library and it is mostly deal with numerical data, we have to encode this categorical column to Numerical column.
 
-<div><img src="images/gender_counts_1.png" alt="Gender Counts Married" height="320" width="320"></div>
-<div><img src="images/gender_counts_2.png" alt="Gender Counts Dependents" height="320" width="320"></div>
+<img src="images/gender_counts_1.png" alt="Gender Counts Married" height="320" width="320"><img src="images/gender_counts_2.png" alt="Gender Counts Dependents" height="320" width="320">
 <div><img src="images/gender_counts_3.png" alt="Gender Counts Education" height="320" width="320"></div>
 <div><img src="images/gender_counts_4.png" alt="Gender Counts Self_Employed" height="320" width="320"></div>
 <div><img src="images/gender_counts_5.png" alt="Gender Counts Loan_Amount_Term" height="320" width="320"></div>
