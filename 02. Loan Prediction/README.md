@@ -147,7 +147,7 @@ Let's see the distribution of Applicant Income
 
 ***Co-applicant_Income***
 
-- The Co-applicant Income column is a **continuous** kind of quantitative data.
+- The Co-applicant Income column is a **continuous** kind of **quantitative** data.
 - All the applicants provided their Co-applicant Income.
 
 Let's see the distribution of Co-applicant Income
@@ -168,7 +168,14 @@ Let's see the distribution of Loan Amount
 
 ***Loan_Amount_Term***
 
+- The Loan_Amount_Term column is a **discrete** kind of **quantitative** data.
+- For 14 applicants, the Loan_Amount_Term is not included in the data.
+- The different Loan_Amount_Terms are 12, 3, 60, 84, 120, 180, 240, 300, 360 and 480.
+
 <div align="center"><img src="images/term_counts.png" alt="Loan_Amount_Term Counts Gender"></div>
+
+- From the above plot, we can see that the Loan_Amount_Term of 360 is most frequently chosen. 
+- Nearly 83 % of applicants choose to 360 Term.
 
 ***Credit_History***
 
@@ -178,10 +185,14 @@ Let's see the distribution of Loan Amount
   - For applicants having Credit_History - 1
   - For applicants aving Credit_History - 0
 
-<div align="center"><img src="images/credit_counts_1.png" alt="Credit_History Counts Gender" height="320" width="320"><img src="images/credit_counts_2.png" alt="Credit_History Counts Married" height="320" width="320"><img src="images/credit_counts_3.png" alt="Credit_History Counts Dependents" height="320" width="320"><img src="images/credit_counts_4.png" alt="Credit_History Counts Education" height="320" width="320"><img src="images/credit_counts_5.png" alt="Credit_History Counts Self_Employed" height="320" width="320"><img src="images/credit_counts_6.png" alt="Credit_History Counts Loan_Amount_Term" height="320" width="320"><img src="images/credit_counts_7.png" alt="Credit_History Counts Property_Area" height="320" width="320"><img src="images/credit_counts_8.png" alt="Credit_History Counts Loan_Status" height="320" width="320"><div align="center">
+<div align="center"><img src="images/credit_counts_1.png" alt="Credit_History Counts Gender" height="320" width="320"><img src="images/credit_counts_2.png" alt="Credit_History Counts Married" height="320" width="320"><img src="images/credit_counts_3.png" alt="Credit_History Counts Dependents" height="320" width="320"><img src="images/credit_counts_4.png" alt="Credit_History Counts Education" height="320" width="320"><img src="images/credit_counts_5.png" alt="Credit_History Counts Self_Employed" height="320" width="320"><img src="images/credit_counts_6.png" alt="Credit_History Counts Loan_Amount_Term" height="320" width="320"><img src="images/credit_counts_7.png" alt="Credit_History Counts Property_Area" height="320" width="320"><img src="images/credit_counts_8.png" alt="Credit_History Counts Loan_Status" height="320" width="320"></div>
 
 ***Property_Area***
 
-<div align="center"><img src="images/property_counts_1.png" alt="Property_Area Counts Gender" height="320" width="320"><img src="images/property_counts_2.png" alt="Property_Area Counts Married" height="320" width="320"><img src="images/property_counts_3.png" alt="Property_Area Counts Dependents" height="320" width="320"><img src="images/property_counts_4.png" alt="Property_Area Counts Education" height="320" width="320"><img src="images/property_counts_5.png" alt="Property_Area Counts Self_Employed" height="320" width="320"><img src="images/property_counts_6.png" alt="Property_Area Counts Loan_Amount_Term" height="320" width="320"><img src="images/property_counts_7.png" alt="Property_Area Counts Credit_History" height="320" width="320"><img src="images/property_counts_8.png" alt="Property_Area Counts Loan_Status" height="320" width="320"><div align="center">
+- The Property_Area column is a **ordinal** kind of **qualitative** data.
+- All the applicants given their Property_Area.
+- The ordinal datas present in this column are Urban, Semiurban and Rural.
+
+<div align="center"><img src="images/property_counts_1.png" alt="Property_Area Counts Gender" height="320" width="320"><img src="images/property_counts_2.png" alt="Property_Area Counts Married" height="320" width="320"><img src="images/property_counts_3.png" alt="Property_Area Counts Dependents" height="320" width="320"><img src="images/property_counts_4.png" alt="Property_Area Counts Education" height="320" width="320"><img src="images/property_counts_5.png" alt="Property_Area Counts Self_Employed" height="320" width="320"><img src="images/property_counts_6.png" alt="Property_Area Counts Loan_Amount_Term" height="320" width="320"><img src="images/property_counts_7.png" alt="Property_Area Counts Credit_History" height="320" width="320"><img src="images/property_counts_8.png" alt="Property_Area Counts Loan_Status" height="320" width="320"></div>
 
 ### 3. Data PreProcessing
