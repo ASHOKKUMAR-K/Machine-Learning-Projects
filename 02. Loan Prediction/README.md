@@ -208,6 +208,7 @@ From the above plot, the point we got is
 Let's implement the data preprocessing techniques such as imputing null values, encoding categorical data, etc..,
 
 ***Gender***
+
 From the feature engineering, we found that there is a relation between Gender and some other features present in the data. so we are going to fill the null data in gender column by predicting. For prediction, here I used KNearestNeighbors algorithm and we can also use KNNImputer.
 
 ```python
@@ -372,3 +373,221 @@ loan_train.drop('Property_Area', axis = 1, inplace = True)
 
 <h5 align="center">Hence we completed the pre-processing part.<h5>
   
+### 4. Feature Selection
+
+Let's see the relation between the features.
+
+<div align="center"><img src="images/correlation_of_features.png" alt="Feature Correlations"></div>
+
+Let's see the correlation with prediction column `Loan_Status`.
+
+<div align="center"><img src="images/correlation_of_features_with_loan_status.png" alt="Feature Correlations"></div>
+
+For selecting the features, we have to check for the feature impotances. Let's use the ExtraTreeClassifier to know the feature importances.
+
+```python
+# TODO : To know the feature Importances
+y = loan_train['Loan_Status'].apply(lambda x : {'Y' : 1, 'N' : 0}[x]).values
+from sklearn.ensemble import ExtraTreesClassifier
+etc = ExtraTreesClassifier()
+etc.fit(loan_train.iloc[:, :-1].values, y)
+
+print("Percentage Importance of each features with respect to Loan_Status : ")
+pd.Series(etc.feature_importances_*100, index = loan_train.columns[:-1])
+```
+
+<div align="center"><img src="images/feature_importances.png" alt="Feature Impotances"></div>
+
+Hence most important features are `Credit_History`, `LoanAmount`, `ApplicantIncome`, `CoapplicantIncome`, `Dependents`.
+
+```python
+# TODO : Arranging features based on their importance to the Loan_Status
+prediction_features = pd.Series(etc.feature_importances_*100, index = loan_train.columns[:-1]).sort_values(ascending = False)
+
+# TODO : Extracting Features name
+prediction_features = prediction_features.index
+
+# Selecting Top 5 features
+prediction_features = prediction_features[:5]
+```
+
+### 5. Building Machine Learning Models
+
+```python
+# Extracting feature columns and prediction columns
+feature_columns = loan_train[prediction_features]
+prediction_column = loan_train['Loan_Status']
+
+# Converting Pandas Dataframe or Series to NumPy array
+X = feature_columns.values
+y = prediction_column.values
+
+# Splitting the training data as train and validation data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 3)
+```
+
+#### Logistic Regression Model
+
+```python
+# Building Logistic Regression Model
+logictic_model = LogisticRegression(max_iter = 200)
+logictic_model.fit(X_train, y_train)
+print("Training Accuracy : {}%".format(logictic_model.score(X_train, y_train) * 100))
+print("Testing Accuracy  : {}%".format(logictic_model.score(X_test, y_test) * 100))
+
+# OUTPUT :
+Training Accuracy : 80.04%
+Testing Accuracy  : 86.17%
+```
+
+#### Decision Tree Classifier Model
+
+```python
+# Building Decision Tree Classifier Model
+decision_tree_classifier = DecisionTreeClassifier(max_depth = 8)
+decision_tree_classifier.fit(X_train, y_train)
+print("Training Score : ", decision_tree_classifier.score(X_train, y_train) * 100)
+print("Testing Score : ",decision_tree_classifier.score(X_test, y_test) * 100)
+
+# OUTPUT : 
+Training Accuracy : 85.53 %
+Testing Accuracy : 85.36 %
+```
+
+### 6. Model Perfomances
+
+Let's see the Logictic Model performance with various training samples by varying random_state in train_test_split
+
+```python
+train_scores = []
+test_scores = []
+logistic_model_dict = {}
+random_states = list(range(50))
+for random_state in random_states:
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = random_state)
+    
+    logictic_model = LogisticRegression(max_iter = 200)
+    logictic_model.fit(X_train, y_train)
+    
+    train_score = logictic_model.score(X_train, y_train) * 100
+    test_score = logictic_model.score(X_test, y_test) * 100
+    
+    logistic_model_dict[random_state] = {'Train Score' : train_score, 'Test Score' : test_score}
+    train_scores.append(train_score)
+    test_scores.append(test_score)
+
+plt.figure(figsize = (16, 8))
+plt.plot(random_states, train_scores, 'ro-')
+plt.plot(random_states, test_scores, 'go-')
+plt.xlabel('random_states', fontsize = 20)
+plt.ylabel('Scores', fontsize = 20)
+plt.title('Logistic Regression Model', fontsize = 30)
+# plt.ylim(0, 100)
+plt.legend(labels = ['Training Scores', 'Testing Scores'], fontsize = 20)
+plt.savefig('../images/logistic_model_performance.png')
+plt.show()
+```
+
+<div align="center"><img src="images/logistic_model_performance.png" alt="Feature Impotances"></div>
+
+Let's see the Decision Tree Model performance with various training samples by varying random_state in train_test_split
+
+```python
+train_scores = []
+test_scores = []
+decision_tree_model_dict = {}
+random_states = list(range(50))
+for random_state in random_states:
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = random_state)
+    
+    decision_tree_model = DecisionTreeClassifier(max_depth = 6)
+    decision_tree_model.fit(X_train, y_train)
+    
+    train_score = decision_tree_model.score(X_train, y_train) * 100
+    test_score = decision_tree_model.score(X_test, y_test) * 100
+    
+    decision_tree_model_dict[random_state] = {'Train Score' : train_score, 'Test Score' : test_score}
+    train_scores.append(train_score)
+    test_scores.append(test_score)
+
+plt.figure(figsize = (16, 8))
+plt.plot(random_states, train_scores, 'ro-')
+plt.plot(random_states, test_scores, 'go-')
+plt.xlabel('random_states', fontsize = 20)
+plt.ylabel('Scores', fontsize = 20)
+plt.title('Decision Tree Classifier Model', fontsize = 30)
+# plt.ylim(0, 100)
+plt.legend(labels = ['Training Scores', 'Testing Scores'], fontsize = 20)
+plt.savefig('../images/decision_tree_model_performance.png')
+plt.show()
+```
+
+<div align="center"><img src="images/decision_tree_model_performance.png" alt="Feature Impotances"></div>
+
+Let's see the Decision Tree Model performance with various max_depths
+
+```python
+training_scores = []
+testing_scores = []
+max_depths = list(range(1, 30))
+for max_depth in max_depths:
+    decision_tree_classifier = DecisionTreeClassifier(max_depth = max_depth)
+    decision_tree_classifier.fit(X_train, y_train)
+    training_scores.append(decision_tree_classifier.score(X_train, y_train) * 100)
+    testing_scores.append(decision_tree_classifier.score(X_test, y_test) * 100)
+
+plt.figure(figsize = (16, 6))
+plt.plot(max_depths, training_scores, 'ro-')
+plt.plot(max_depths, testing_scores, 'go-')
+plt.xlabel('Max Depth', fontsize = 20)
+plt.ylabel('Scores', fontsize = 20)
+plt.title('Decision Tree Classifer Model without Standard Scaling', fontsize = 30)
+# plt.ylim(50, 105)
+plt.legend(labels = ['Training Scores', 'Testing Scores'])
+plt.savefig('../images/decision_tree_classifier_model_performance.png')
+plt.show()
+```
+
+<div align="center"><img src="images/decision_tree_classifier_model_performance.png" alt="Feature Impotances"></div>
+
+From this Decision Tree Classifier performs well.
+
+### 6. Building Optimum Machine Learning Model
+
+```python
+# Extracting Features and Prediction column values
+feature_values = feature_columns.values
+prediction_values = loan_train['Loan_Status'].values
+
+decision_tree_model = DecisionTreeClassifier(max_depth = 8)
+decision_tree_model.fit(feature_values, prediction_values)
+
+print("Score : ", decision_tree_model.score(feature_values, prediction_values) * 100)
+
+# OUTPUT :
+Score :  85.34 %
+```
+
+### 7. Test Data Predictions
+
+```python
+# Loading Test Data
+loan_test = pd.read_csv('../data/test_Y3wMUE5_7gLdaTN.csv')
+
+# Selecting Prediction Features
+loan_test = loan_test.loc[:, prediction_features]
+
+# Dropping Records having null values on prediction features
+loan_test = loan_test.dropna(how = 'any')
+
+# Encoding Categorical data into Numerical Data
+loan_test['Dependents'] = loan_test['Dependents'].apply(lambda x : {'0' : 0, '1' : 1, '2' : 2, '3+' : 3}[x])
+
+# Predictions
+loan_test['Loan_Status_Predicted'] = decision_tree_model.predict(loan_test.values)
+
+# Extracting Top 25 samples which is predicted by our model
+loan_test.head(25)
+```
+
+<div align="center"><img src="images/test_data_predictions.png" alt="Feature Impotances"></div>
