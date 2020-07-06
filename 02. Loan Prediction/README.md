@@ -141,7 +141,7 @@ There are 12 features in the training data. Let's explore the features.
 
 Let's see the distribution of Applicant Income
 
-<div align="center"><img src="images/ApplicantIncomeDistribution.png" alt="Applicant Income Distribution" height="320" width="320"></div>
+<div align="center"><img src="images/ApplicantIncomeDistribution.png" alt="Applicant Income Distribution"></div>
 
 - From the above distplot, most of the Applicants income less than Rs.10,000 and some considerable amount of applicants having income between Rs.10,000 and Rs.20,000.
 
@@ -152,7 +152,7 @@ Let's see the distribution of Applicant Income
 
 Let's see the distribution of Co-applicant Income
 
-<div align="center"><img src="images/CoapplicantIncomeDistribution.png" alt="Coapplicant Income Distribution" height="320" width="320"></div>
+<div align="center"><img src="images/CoapplicantIncomeDistribution.png" alt="Coapplicant Income Distribution"></div>
 
 From the above dist plot most of the co-applicant income is zero or nearer to zero
 
@@ -163,12 +163,12 @@ From the above dist plot most of the co-applicant income is zero or nearer to ze
 
 Let's see the distribution of Loan Amount
 
-<div align="center"><img src="images/LoanAmountDistribution.png" alt="LoanAmount Distribution" height="320" width="320"><div>
+<div align="center"><img src="images/LoanAmountDistribution.png" alt="LoanAmount Distribution"></div>
 
 
 ***Loan_Amount_Term***
 
-<div align="center"><img src="images/term_counts.png" alt="Loan_Amount_Term Counts Gender" height="320" width="320"></div>
+<div align="center"><img src="images/term_counts.png" alt="Loan_Amount_Term Counts Gender"></div>
 
 ***Credit_History***
 
