@@ -185,6 +185,12 @@ Let's see the distribution of Loan Amount
   - For applicants having Credit_History - 1
   - For applicants aving Credit_History - 0
 
+<div align="center"><img src="images/credit_counts_0.png" alt="Credit_History Counts Gender" height="320" width="320"></div>
+
+From the above plot, the point we got is
+- If the applicant is having Credit_History, then there is a difficulty on classifying.
+- But if the applicant is not having Credit_History, then there is a high probability chance of rejection.
+
 <div align="center"><img src="images/credit_counts_1.png" alt="Credit_History Counts Gender" height="320" width="320"><img src="images/credit_counts_2.png" alt="Credit_History Counts Married" height="320" width="320"><img src="images/credit_counts_3.png" alt="Credit_History Counts Dependents" height="320" width="320"><img src="images/credit_counts_4.png" alt="Credit_History Counts Education" height="320" width="320"><img src="images/credit_counts_5.png" alt="Credit_History Counts Self_Employed" height="320" width="320"><img src="images/credit_counts_6.png" alt="Credit_History Counts Loan_Amount_Term" height="320" width="320"><img src="images/credit_counts_7.png" alt="Credit_History Counts Property_Area" height="320" width="320"><img src="images/credit_counts_8.png" alt="Credit_History Counts Loan_Status" height="320" width="320"></div>
 
 ***Property_Area***
@@ -195,4 +201,174 @@ Let's see the distribution of Loan Amount
 
 <div align="center"><img src="images/property_counts_1.png" alt="Property_Area Counts Gender" height="320" width="320"><img src="images/property_counts_2.png" alt="Property_Area Counts Married" height="320" width="320"><img src="images/property_counts_3.png" alt="Property_Area Counts Dependents" height="320" width="320"><img src="images/property_counts_4.png" alt="Property_Area Counts Education" height="320" width="320"><img src="images/property_counts_5.png" alt="Property_Area Counts Self_Employed" height="320" width="320"><img src="images/property_counts_6.png" alt="Property_Area Counts Loan_Amount_Term" height="320" width="320"><img src="images/property_counts_7.png" alt="Property_Area Counts Credit_History" height="320" width="320"><img src="images/property_counts_8.png" alt="Property_Area Counts Loan_Status" height="320" width="320"></div>
 
-### 3. Data PreProcessing
+<h5 align="center">Hence we finished our Feature Engineering part</h5>
+
+### 3. Data Pre-processing
+
+Let's implement the data preprocessing techniques such as imputing null values, encoding categorical data, etc..,
+
+***Gender***
+From the feature engineering, we found that there is a relation between Gender and some other features present in the data. so we are going to fill the null data in gender column by predicting. For prediction, here I used KNearestNeighbors algorithm and we can also use KNNImputer.
+
+```python
+# Initialize Gender predictor columns list
+GENDER_PREDICTOR_COLUMNS = ['Dependents', 'ApplicantIncome', 'LoanAmount', 'Property_Area', 'Gender']
+
+# Let's get the rows not having null values on gender column
+samples_without_null_values_on_gender_column = loan_train[~loan_train['Gender'].isnull()][GENDER_PREDICTOR_COLUMNS]
+print("Number of Samples Before dropping samples having null values in predictor columns for Gender column: ", 
+     samples_without_null_values_on_gender_column.shape[0])
+
+# Dropping samples having null values in predictor columns
+samples_without_null_values_on_gender_column = samples_without_null_values_on_gender_column.dropna(how = 'any')
+print("Number of Samples After dropping samples having null values in predictor columns for Gender column: ", 
+     samples_without_null_values_on_gender_column.shape[0])
+
+# Conveting categorical values on Dependents column to numerical values
+samples_without_null_values_on_gender_column['Dependents'] = samples_without_null_values_on_gender_column['Dependents'].apply(
+    lambda x : {'0': 0, '1':1, '2':2, '3+':3}[x]
+)
+# Conveting categorical values on Property_Area column to numerical values
+samples_without_null_values_on_gender_column['Property_Area'] = samples_without_null_values_on_gender_column['Property_Area'].apply(
+    lambda x : {'Urban': 2, 'Semiurban':1.5, 'Rural':1}[x]
+)
+
+# Building Gender Predictor using Pipeline and KNeigborsClassifiers
+Gender_predictor = Pipeline(steps = [
+    ('scaler', StandardScaler()),
+    ('gen_predictor', KNeighborsClassifier(n_neighbors = 1))
+])
+Gender_predictor.fit(samples_without_null_values_on_gender_column.iloc[:, :-1].values,
+                    samples_without_null_values_on_gender_column.iloc[:, -1].values)
+
+# Function which fills null values on Gender column
+def gender_null_value_filler(df, Gender_predictor):
+    for row in range(df.shape[0]):
+        if df.loc[row, 'Gender'] is np.nan:
+            X = loan_train.loc[row, GENDER_PREDICTOR_COLUMNS[:-1]].values.reshape(1, -1)
+            X[0][0] = {'0': 0, '1':1, '2':2, '3+':3}[X[0][0]]
+            X[0][3] = {'Urban': 2, 'Semiurban':1.5, 'Rural':1}[X[0][3]]
+            df.loc[row, 'Gender'] = Gender_predictor.predict(X)
+    return df
+    
+# TODO : Filling null values on Gender columns optimally
+loan_train = gender_null_value_filler(loan_train, Gender_predictor)
+```
+Hence we filled the null values on gender column. Since it is a categorical column, we have to encode it to numerical values. I encoded Male as 1 and Female as 0 by simply using a lambda function.
+
+```python
+# TODO : Encoding Gender Column - Male : 1, Female : 0
+loan_train['Gender'] = loan_train.Gender.apply(lambda x : {'Male': 1, 'Female' : 0}[x])
+```
+
+***Married***
+
+From feature engineering, we get that most of applicants are married. So we are going to fill the null value with `Yes`.
+```python
+# Let's fill null values in Married columns with 'Yes'
+loan_train['Married'] = loan_train['Married'].fillna('Yes')
+```
+Since it is a categorical column, we have to encode this to numerical value. I encoded Yes as 1 and No as 0 by simply using a lambda function.
+```python
+# TODO : encoding categorical values into numerical values
+loan_train['Married'] = loan_train['Married'].apply(lambda x : {'Yes' : 1, 'No' : 0}[x])
+```
+
+***Dependents***
+
+From feature engineering, we found that there are 15 null values. The applicants who didn't married will not be having dependents. So for the applicants those who are not married we can fill Dependents as 0 and for married dependents as 1.
+
+```python
+# TODO : Function for filling null values on dependents columns
+def dependents_null_value_filler(df):
+    for row in range(df.shape[0]):
+        if df.loc[row, 'Dependents'] is np.nan:
+            df.loc[row, 'Dependents'] = str(df.loc[row, 'Married'])
+    return df
+    
+# TODO : Fill null values on Dependents column
+loan_train = dependents_null_value_filler(loan_train)
+```
+
+Since it is a categorical column but it is a discrete data, we have to encode `0` as 0, `1` as 1, `2` as 2, `3+` as 3.
+```python
+# TODO : Encoding Categorical data into NUmerical Data
+loan_train['Dependents'] = loan_train['Dependents'].apply(lambda x : {'0' : 0, '1' : 1, '2' : 2, '3+' : 3}[x])
+```
+
+***Education***
+
+From Feature Engineering part, we found that there are no null values. Since it is a binary data, we have to encode the column with binary values 0 and 1.
+```python
+# TODO : Encoding categorical data into Numerical data
+loan_train['Education'] = loan_train['Education'].apply(lambda x : {'Graduate' : 1, 'Not Graduate' : 0}[x])
+```
+
+***Self_Employed***
+
+Since 86 % of applicants are not self employed, we are going to fill the null value with `No` and encoding with binary values 0 and 1.
+```python
+# TODO : Filling Null values with No on Self_Employed column
+loan_train['Self_Employed'].fillna(value = 'No', inplace = True)
+
+# TODO : Encoding Self_Employed as 1 and Not Self_Employed as 0
+loan_train['Self_Employed'] = loan_train['Self_Employed'].apply(lambda x : {'Yes' : 1, 'No' : 0}[x])
+```
+
+***LoanAmount***
+
+From feature engineering part, we found that there are 22 null values on LoanAmount. We are going to fill the null values with mean value with respect to Loan_Status.
+
+```python
+# TODO : Filling Above values on LoanAmount column based on LoanStatus.
+def LoanAmount_null_values_filler(df):
+    for row in range(df.shape[0]):
+        if pd.isnull(df.loc[row, 'LoanAmount']):
+            if df.loc[row, 'Loan_Status'] == 'Y':
+                df.loc[row, 'LoanAmount'] = 151.22
+            elif df.loc[row, 'Loan_Status'] == 'N':
+                df.loc[row, 'LoanAmount'] = 144.29
+            else:
+                pass
+    return df
+
+# TODO : Filling null values on LoanAmount
+loan_train = LoanAmount_null_values_filler(loan_train)
+```
+
+***Loan_Amount_Term***
+
+From feature engineering part, we found that there are 14 null values present in this column. So we are going to fill the null value with most frequently chosen term of 360. Most of the applicants which is nearly 83 % of applicant chosen to Loan_Amount_Term of 360.
+
+```python
+# TODO : Fill null values on Loan_Amount_Term
+loan_train['Loan_Amount_Term'] = loan_train['Loan_Amount_Term'].fillna(value = 360)
+```
+
+***Credit_History***
+
+From feature engineering part, we found that there are 50 null values present in this column. Most of the applicants which is nearly 84 % of applicants given their Credit_History.
+
+```python
+# TODO : Filling null values on Credit_History
+loan_train['Credit_History'] = loan_train['Credit_History'].fillna(value = 1.0)
+```
+
+***Property_Area***
+
+All the applicants mentioned their property area. There are 3 kinds of values in this feature. They are Rural, Urban, and Semiurban. We have to convert them into numerical values and at the same time, we should not lose any data. So we can use either get_dummies in pandas or OneHotEncoder in Sklearn.
+
+```python
+# TODO : To get Property_Area Dummies
+Property_Area_Dummies = pd.get_dummies(loan_train['Property_Area'])
+
+# TODO : Create Separate column for Rural and Urban Property_Area
+loan_train['Property_Area_Rural'] = Property_Area_Dummies['Rural']
+loan_train['Property_Area_Semiurban'] = Property_Area_Dummies['Semiurban']
+
+# TODO : Dropping Property_Area column as it is replaced with dummy columns
+loan_train.drop('Property_Area', axis = 1, inplace = True)
+```
+
+<h5 align="center">Hence we completed the pre-processing part.<h5>
+  
