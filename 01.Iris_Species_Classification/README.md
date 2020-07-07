@@ -25,7 +25,7 @@ This project was started as a motivation for learning Machine Learning Algorithm
 - We can find two kind of data from kaggle which is CSV data and SQLITE database.
 - Each iris species consists of 50 samples.
 - The features of iris flower are Sepal Length in cm, Sepal Width in cm, Petal Length in cm and Petal Width in cm.
-![Image](blog_images/iris_species.png)
+![Image](images/iris_species.png)
 
 ## Data Pre processing
 - We can read the both kind of data by using the below code
@@ -54,7 +54,7 @@ iris_db = pd.DataFrame.from_records(data = query.fetchall(), columns = columns)
 iris_db.groupby('Species').describe().T
 ```
 
-<div align="center"><img src="blog_images/iris_descriptive_stats.png"></div>
+<div align="center"><img src="images/iris_descriptive_stats.png"></div>
 
 - **count** shows that there 50 samples for each species.
 - **Setosa**
@@ -91,7 +91,7 @@ features_correlation = iris_db.drop('Species', axis = 1).corr()
 sb.heatmap(data = features_correlation, annot = True, fmt = '.2%')
 ```
 
-<div align="center"><img src="blog_images/feature_correlation.png"></div>
+<div align="center"><img src="images/feature_correlation.png"></div>
 
 #### Let's understand how the Petal length and Petal width contributes together to classify iris species.
 ```python
@@ -100,7 +100,7 @@ sb.heatmap(data = features_correlation, annot = True, fmt = '.2%')
 sb.relplot(x = 'PetalLengthCm', y = 'PetalWidthCm', data = iris_db, hue = 'Species', aspect = 2, height = 6)
 
 ```
-<div align="center"><img src="blog_images/petal_length_width.png"></div>
+<div align="center"><img src="images/petal_length_width.png"></div>
 
 - From the above scatter plot, setosa species clearly classified from other two species.
 - Other two species can also be classified based on Petal Length and Petal Width easily.
@@ -112,7 +112,7 @@ sb.relplot(x = 'PetalLengthCm', y = 'PetalWidthCm', data = iris_db, hue = 'Speci
 sb.relplot(x = 'PetalLengthCm', y = 'SepalLengthCm', data = iris_db, hue = 'Species', aspect = 2, height = 6)
 
 ```
-<div align="center"><img src="blog_images/petal_sepal_length.png"></div>
+<div align="center"><img src="images/petal_sepal_length.png"></div>
 
 - From the above plot, we can separate versicolor and virginica by means of Petal Length alone.
 - Sepal Length does not contribute more here
@@ -124,7 +124,7 @@ sb.relplot(x = 'PetalLengthCm', y = 'SepalLengthCm', data = iris_db, hue = 'Spec
 sb.relplot(x = 'PetalWidthCm', y = 'SepalLengthCm', data = iris_db, hue = 'Species', aspect = 2, height = 6)
 
 ```
-<div align="center"><img src="blog_images/petal_width_sepal_length.png"></div>
+<div align="center"><img src="images/petal_width_sepal_length.png"></div>
 
 - From the above plot, we can separate based on Petal Width alone.
 - Sepal Length doesn't contribute more here.
@@ -187,7 +187,7 @@ plt.show()
 
 ```
 
-<div align="center"><img src="blog_images/model_performance.png"></div>
+<div align="center"><img src="images/model_performance.png"></div>
 
 ## Build Optimal Model
 - Let's build a optimal model
@@ -201,12 +201,12 @@ classifier.fit(X_train, y_train)
 ```
 - Let's plot the Decision Tree
 
-<div align="center"><img src="blog_images/decision_tree.png"></div>
+<div align="center"><img src="images/decision_tree.png"></div>
 
 ## Predictions
 Let's see the test data predictions
 
-<div align="center"><img src="blog_images/predictions.png"></div>
+<div align="center"><img src="images/predictions.png"></div>
 
 - Finally we finishes the project. 
 - We have built a Decision Tree Classifier which performs well with given features petal length and petal width and having the **Training accuracy of 99.11%** and **Testing accuracy of 100%**.
