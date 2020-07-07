@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/bootstrap-4.5.0/bootstrap.min.css')}}">
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'css/navbar_footer/navbar.min.css')}}">
+    {% block css_links %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+
+  	<!-- Navbar Starts -->
+
+	<nav class="navbar sticky-top navbar-expand-lg navbar-dark navbar-color">
+		<a class="navbar-brand" href="#">
+		    <img src="{{url_for('static', filename='images/icons/a.svg')}}" width="45" height="45" class="d-inline-block align-top" alt="" loading="lazy">
+		    <span class="my_name text-md-left">ASHOK KUMAR K</span>
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Journey</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Projects</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Blogs</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Videos</a>
+				</li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="search" placeholder="Search Projects ..." aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
+		</div>
+	</nav>
+	<!-- Navbar Ends -->
+
+{% block content %}{% endblock %}
+
+
+	<!-- Footer Starts -->
+	<footer id="sticky-footer" class="py-3 navbar-color footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-area col-md-4">
+					<div class="h2">ASHOK KUMAR K</div>
+					<div class="h5">Seeking for Data Science Internship</div>
+					<div class="h6">I have explored on various Machine Learning algorithms and very good hands-on practice on Descriptive Statistics, Predictive Statistics, Exploratory Data Analysis (EDA), Feature Engineering, Feature Selection, Feature Scaling, etc..,</div>
+				</div>
+				<div class="col-area col-md-2">
+					<div class="h5">Explore</div>
+					<br>
+					<ul>
+						<a href="#"><li>About</li></a>
+						<a href="#"><li>Journey</li></a>
+						<a href="#"><li>Projects</li></a>
+						<a href="#"><li>Blogs</li></a>
+						<a href="#"><li>Videos</li></a>
+					</ul>
+				</div>
+				<div class="col-area col-md-4">
+					<div class="h5 text-center">Visit</div>
+					<p>No.162, kommathamman kovil street, old nallur, Kancheepuram, Chennai - 600069</p>
+					<div class="h6">
+						<a href="mailto:ashokkumark.citeee2517@gmail.com">
+							Email : ashokkumark.citeee2517@gmail.com
+						</a>
+						<br><br>
+						Phone : +91 6382540562<br><br>
+						WhatsApp : +91 805224273<br><br>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="h5">Follow on</div>
+					<ul class="social-links">
+						{% for i in range(4, n-2) %}
+
+						<li>
+							<a href="{{ social_data[1][i] }}">
+							    <img src="{{url_for('static', filename=social_data[3][i])}}" width="25" height="25" class="d-inline-block align-top" alt="" loading="lazy">&nbsp;&nbsp;&nbsp;
+							    {{ social_data[2][i] }}
+							</a>
+						</li>
+
+						{% endfor %}
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer Ends -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{{url_for('static', filename = 'js/jquery-3.5.1.slim.min.js')}}"></script>
+
+    <script src="{{url_for('static', filename = 'js/popper.min.js')}}"></script>
+
+    <script src="{{url_for('static', filename = 'js/bootstrap.min.js')}}"></script>
+    {% block js_scripts %}{% endblock %}
+  </body>
+</html>
