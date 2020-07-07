@@ -1,0 +1,50 @@
+body {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.navbar-color {
+  background-color: #6f4a9a;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1rem;
+}
+
+.navbar {
+  padding: 0.5rem 1rem;
+}
+
+.my_name {
+  padding-left: 0rem;
+  margin-top: 0.3rem;
+  font-size: 1.7rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0px;
+  text-align: left;
+}
+
+.footer, a, a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.social-links li {
+  padding: 0.2rem;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.navbar-toggler {
+  padding: 0.3rem;
+}
+/*# sourceMappingURL=navbar.css.map */

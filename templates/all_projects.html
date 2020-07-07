@@ -1,3 +1,100 @@
 {% extends "base.html" %}
 
 {% block title %}Machine Learning Projects{% endblock %}
+
+{% block css_links %}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'css/all_projects.min.css')}}">
+{% endblock %}
+{% block content %}
+
+<div class="container-fluid content">
+	{% for row in range(rows) %}
+	<div class="row">
+		{% for col in range(3) %}
+
+		<div class="col-md-4">
+			<div class="card">
+				<h4 class="card-title text-center">{{ ml_projects_data[1][row*3 + col] }}</h4>
+				<div class="card-body">
+					<div class="img-top-content">
+						<img src="{{url_for('static', filename=ml_projects_data[6][row*3 + col])}}" class="card-img-top img-fluid img-front img-thumbnail" alt="...">
+						<div class="centered-content">
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="{{ ml_projects_data[14][row*3 + col] }}">
+  								View more
+							</button>
+						</div>
+
+							<!-- Modal -->
+							<div class="modal fade" id="{{ ml_projects_data[15][row*3 + col] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+							  <div class="modal-dialog modal-dialog-centered" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <h5 class="modal-title" id="exampleModalLongTitle">{{ ml_projects_data[1][row*3 + col] }}</h5>
+							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							          <span aria-hidden="true">&times;</span>
+							        </button>
+							      </div>
+							      <div class="modal-body">
+						      		<div class="row">
+						      			<div class="col-md-4 text-center date">
+						      				<h6>Start Date</h6>
+						      				{{ ml_projects_data[2][row*3 + col] }}
+						      			</div>
+						      			<div class="col-md-4 text-center">
+											<img src="{{url_for('static', filename=ml_projects_data[6][row*3 + col])}}" class="img-fluid img-thumbnail" height="250" alt="{{ ml_projects_data[1][row*3 + col] }}">
+						      			</div>
+						      			<div class="col-md-4 text-center date">
+						      				<h6>End Date</h6>
+						      				{{ ml_projects_data[3][row*3 + col] }}
+						      			</div>
+						      		</div>
+						      		<div class="row">
+						      			<h4>About the project</h4>
+						      			<hr>
+						      			<p>{{ ml_projects_data[4][row*3 + col] }}</p>
+						      		</div>
+						      		<div class="row">
+						      			<h4>Motivation</h4>
+						      			<hr>
+						      			<p>{{ ml_projects_data[5][row*3 + col] }}</p>
+						      		</div>
+						      		<div class="row">
+						      			<h4>Technologies / Languages</h4>
+						      		</div>
+						      		<div class="row">
+										<img src="{{url_for('static', filename='images/photos/python.jpeg')}}" alt="{{ ml_projects_data[1][row*3 + col] }}">
+						      		</div>
+						      		<div class="row">
+						      			<h4>Frameworks</h4>
+						      		</div>
+						      		<div class="row">
+						      			{% for i in libraries_used[row*3 + col] %}
+										<img src="{{url_for('static', filename=i)}}" height="100" width="100" alt="{{ ml_projects_data[1][row*3 + col] }}">
+						      			{% endfor %}
+						      		</div>
+							      </div>
+							      <div class="modal-footer">
+							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							        <button type="button" class="btn btn-primary">Save changes</button>
+							      </div>
+							    </div>
+							  </div>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{% endfor %}
+	</div>
+	{% endfor %}
+		{% for i in libraries_used[0] %}
+			{{ i }}
+			<br>
+		{% endfor %}
+		{{ ml_projects_data[9] }}
+
+</div>
+
+
+{% endblock %}

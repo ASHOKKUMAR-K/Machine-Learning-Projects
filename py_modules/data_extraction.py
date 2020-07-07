@@ -20,3 +20,8 @@ def get_social_link_data(social):
 
 	return np.asarray([social_name, social_link, social_text, social_logo_path])
 
+def get_ml_projects_data(ml_projects):
+    # Sorting to bring recent projects at the beginning
+    ml_projects.sort_values(by = 'Order', ascending = False, inplace = True)
+
+    return ml_projects.T.values
