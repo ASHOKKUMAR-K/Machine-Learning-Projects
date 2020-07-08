@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Machine Learning Projects{% endblock %}
+
+{% block css_links %}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'css/loan.min.css')}}">
+{% endblock %}
+{% block content %}
+
+<div class="container">
+	<div class="space"></div>
+	<h2 class="text-center">LOAN STATUS PREDICTOR</h2>
+	<div class="space"></div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-body">
+					<form>
+						<div class="form-group">
+							<label for="creditHistory">Credit History</label>
+							<select class="custom-select" id="creditHistory">
+								<option selected>Choose Credit History</option>
+								<option value="1">Yes</option>
+								<option value="0">No</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="loanAmount">Loan Amount</label>
+							<input type="email" class="form-control" id="loanAmount" aria-describedby="emailHelp">
+						</div>
+						<div class="form-group">
+							<label for="applicantIncome">Applicant Income</label>
+							<input type="email" class="form-control" id="applicantIncome" aria-describedby="emailHelp">
+						</div>
+						<div class="form-group">
+							<label for="coapplicantIncome">Co-applicant Income</label>
+							<input type="email" class="form-control" id="coapplicantIncome" aria-describedby="emailHelp">
+						</div>
+						<div class="form-group">
+							<label for="dependents">Dependents</label>
+							<input type="email" class="form-control" id="dependents" aria-describedby="emailHelp">
+						</div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			
+		</div>
+	</div>
+	<div class="space"></div>
+
+</div>
+
+
+{% endblock %}

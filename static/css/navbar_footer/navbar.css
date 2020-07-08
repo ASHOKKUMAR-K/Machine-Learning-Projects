@@ -1,8 +1,5 @@
 body {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 .navbar-color {
@@ -47,4 +44,8 @@ ul {
 .navbar-toggler {
   padding: 0.3rem;
 }
-/*# sourceMappingURL=navbar.css.map */
+
+.content {
+  padding: 2rem;
+  min-height: 70vh;
+}

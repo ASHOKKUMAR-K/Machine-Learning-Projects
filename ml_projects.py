@@ -32,15 +32,39 @@ def all_projects():
 	ml_projects_data = de.get_ml_projects_data(ml_projects)
 
 	# Extracting Libraries links
-	libraries = ml_projects_data[8]
+	libraries = ml_projects_data[9]
 	libraries_used = [[str(library) for library in rows.split('|')] for rows in libraries]
+
+	# Extracting Technologies
+	technologies = ml_projects_data[11]
+	technologies_used = [[str(technology) for technology in rows.split('|')] for rows in technologies]
+
+	# Extracting Frame works
+	frameworks = ml_projects_data[10]
+	frameworks_used = [[str(framework) for framework in rows.split('|')] for rows in frameworks]
+
+	# Extracting Tools / IDE
+	tools = ml_projects_data[12]
+	tools_used = [[str(tool) for tool in rows.split('|')] for rows in tools]
 
 	return render_template('all_projects.html',
                         social_data=social_data,
                         n = number_of_links,
                         ml_projects_data = ml_projects_data,
                         rows = rows,
-                        libraries_used = libraries_used)
+                        libraries_used = libraries_used,
+                        technologies_used = technologies_used,
+                        frameworks_used = frameworks_used,
+                        tools_used = tools_used)
+
+
+# Loan Status Predictor
+@ml_app.route('/loan_status_predictor', methods = ['POST', 'GET'])
+def loan_status_predictor():
+	return render_template('loan_status_predictor.html',
+                        social_data = social_data,
+                        n = number_of_links)
+
 
 
 # App Launcher

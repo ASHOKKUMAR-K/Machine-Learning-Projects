@@ -12,20 +12,21 @@
 	<div class="row">
 		{% for col in range(3) %}
 
-		<div class="col-md-4">
+		{% if ml_projects_data[0][row*3 + col] %}
+		<div class="col-md-4 project">
 			<div class="card">
 				<h4 class="card-title text-center">{{ ml_projects_data[1][row*3 + col] }}</h4>
 				<div class="card-body">
 					<div class="img-top-content">
 						<img src="{{url_for('static', filename=ml_projects_data[6][row*3 + col])}}" class="card-img-top img-fluid img-front img-thumbnail" alt="...">
 						<div class="centered-content">
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="{{ ml_projects_data[14][row*3 + col] }}">
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="{{ ml_projects_data[15][row*3 + col] }}">
   								View more
 							</button>
 						</div>
 
 							<!-- Modal -->
-							<div class="modal fade" id="{{ ml_projects_data[15][row*3 + col] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+							<div class="modal fade" id="{{ ml_projects_data[16][row*3 + col] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 							  <div class="modal-dialog modal-dialog-centered" role="document">
 							    <div class="modal-content">
 							      <div class="modal-header">
@@ -35,6 +36,7 @@
 							        </button>
 							      </div>
 							      <div class="modal-body">
+							      	<!-- Date and Image -->
 						      		<div class="row">
 						      			<div class="col-md-4 text-center date">
 						      				<h6>Start Date</h6>
@@ -48,34 +50,94 @@
 						      				{{ ml_projects_data[3][row*3 + col] }}
 						      			</div>
 						      		</div>
+						      		<div class="space"></div>
+						      		<div class="row">
+								        <button type="button" class="offset-md-4 col-md-4 launch text-center btn btn-primary">Launch Model</button>
+						      		</div>
+						      		<div class="space"></div>
+						      		<!-- About the Project -->
 						      		<div class="row">
 						      			<h4>About the project</h4>
-						      			<hr>
-						      			<p>{{ ml_projects_data[4][row*3 + col] }}</p>
 						      		</div>
 						      		<div class="row">
+						      			<p>{{ ml_projects_data[4][row*3 + col] }}</p>
+						      		</div>
+						      		<div class="space"></div>
+						      		<!-- Motivation -->
+						      		<div class="row">
 						      			<h4>Motivation</h4>
-						      			<hr>
+						      		</div>
+						      		<div class="row">
 						      			<p>{{ ml_projects_data[5][row*3 + col] }}</p>
 						      		</div>
+						      		<!-- Technologies and Languages -->
+						      		<div class="space"></div>
 						      		<div class="row">
 						      			<h4>Technologies / Languages</h4>
 						      		</div>
 						      		<div class="row">
-										<img src="{{url_for('static', filename='images/photos/python.jpeg')}}" alt="{{ ml_projects_data[1][row*3 + col] }}">
+						      			{% for i in technologies_used[row*3 + col] %}
+										<img src="{{url_for('static', filename=i)}}" height="80" width="80" class="pad" alt="{{ i }}">
+						      			{% endfor %}
 						      		</div>
+						      		<!-- Packages -->
+						      		<div class="space"></div>
+						      		<div class="row">
+						      			<h4>Packages</h4>
+						      		</div>
+						      		<div class="row">
+						      			{% for i in libraries_used[row*3 + col] %}
+										<img src="{{url_for('static', filename=i)}}" height="80" width="80" class="pad" alt="{{ ml_projects_data[1][row*3 + col] }}">
+						      			{% endfor %}
+						      		</div>
+						      		<!-- Frame works -->
+						      		<div class="space"></div>
 						      		<div class="row">
 						      			<h4>Frameworks</h4>
 						      		</div>
 						      		<div class="row">
-						      			{% for i in libraries_used[row*3 + col] %}
-										<img src="{{url_for('static', filename=i)}}" height="100" width="100" alt="{{ ml_projects_data[1][row*3 + col] }}">
+						      			{% for i in frameworks_used[row*3 + col] %}
+										<img src="{{url_for('static', filename=i)}}" height="80" width="80" class="pad" alt="{{ i }}">
 						      			{% endfor %}
+						      		</div>
+						      		<!-- Algorithms Used -->
+						      		<div class="space"></div>
+						      		<div class="row">
+						      			<h4>Algorithms Used</h4>
+						      		</div>
+						      		<div class="row">
+						      			<a href="{{ ml_projects_data[8][row*3 + col] }}" class="algo"><p>{{ ml_projects_data[7][row*3 + col] }}</p></a>
+						      		</div>
+						      		<!-- Tools -->
+						      		<div class="space"></div>
+						      		<div class="row">
+						      			<h4>Frameworks</h4>
+						      		</div>
+						      		<div class="row">
+						      			{% for i in tools_used[row*3 + col] %}
+										<img src="{{url_for('static', filename=i)}}" height="80" width="80" class="pad" alt="{{ i }}">
+						      			{% endfor %}
+						      		</div>
+						      		<!-- Training Score -->
+						      		<div class="space"></div>
+						      		<div class="row">
+						      			<h4>Training Score</h4>
+						      		</div>
+						      		<div class="row">
+						      			<p>{{ ml_projects_data[13][row*3 + col] }} %</p>
+						      		</div>
+						      		<!-- Testing Score -->
+						      		<div class="space"></div>
+						      		<div class="row">
+						      			<h4>Testing Score</h4>
+						      		</div>
+						      		<div class="row">
+						      			<p>{{ ml_projects_data[14][row*3 + col] }} %</p>
 						      		</div>
 							      </div>
 							      <div class="modal-footer">
+							        <a href="{{ url_for('loan_status_predictor') }}"><button type="button" class="btn btn-primary">Launch Model</button></a>
 							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							        <button type="button" class="btn btn-primary">Save changes</button>
 							      </div>
 							    </div>
 							  </div>
@@ -84,15 +146,11 @@
 				</div>
 			</div>
 		</div>
+		{% endif %}
 
 		{% endfor %}
 	</div>
 	{% endfor %}
-		{% for i in libraries_used[0] %}
-			{{ i }}
-			<br>
-		{% endfor %}
-		{{ ml_projects_data[9] }}
 
 </div>
 
