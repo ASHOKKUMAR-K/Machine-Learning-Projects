@@ -1,1 +1,1 @@
-.space{min-height:1rem}
+.space{min-height:1rem}.congrats{color:#00ff00;font-size:5rem}.rejects{color:#ff0000;font-size:4rem}.status{font-size:2rem}@media (min-width: 576px){.modal-dialog{max-width:calc(100% - 15rem) !important;margin:1rem auto}}

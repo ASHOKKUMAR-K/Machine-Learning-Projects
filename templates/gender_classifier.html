@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 
-{% block title %}Loan Status Predictor{% endblock %}
+{% block title %}Gender Classifier{% endblock %}
 
 {% block css_links %}
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'css/loan.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'css/gender.min.css')}}">
 
-{% if status_predicted %}
+{% if gender_predicted %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     google.charts.load("current", {packages:['corechart']});
     google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
-        ["Status", "Probability", { role: "style" } ],
-        ["Approved", {{ predict_proba[0][1] }}, "#00ff00"],
-        ["Rejected", {{ predict_proba[0][0] }}, "#ff0000"]
+        ["Gender", "Probability", { role: "style" } ],
+        ["Male", {{ predict_proba[0][1] }}, "#0000ff"],
+        ["Female", {{ predict_proba[0][0] }}, "#00ff00"]
 
       ]);
 
@@ -27,7 +27,7 @@
                        2]);
 
       var options = {
-        title: "Loan Status",
+        title: "Gender",
         height: 450,
         bar: {groupWidth: "80%"},
         legend: { position: "none" },
@@ -44,7 +44,7 @@
 
 <div class="container">
 	<div class="space"></div>
-	<h2 class="text-center">LOAN STATUS PREDICTOR</h2>
+	<h2 class="text-center">GENDER CLASSIFIER</h2>
 	<div class="space"></div>
 	<div class="row">
 		<div class="col-md-6">
@@ -52,28 +52,12 @@
 				<div class="card-body">
 					<form method="POST">
 						<div class="form-group">
-							<label for="creditHistory">Credit History</label>
-							<select name="credit_history" class="custom-select" id="creditHistory">
-								<option selected>Choose Credit History</option>
-								<option value="1">Yes</option>
-								<option value="0">No</option>
-							</select>
+							<label for="height">Height (inches)</label>
+							<input name="height" type="text" class="form-control" id="height" aria-describedby="emailHelp">
 						</div>
 						<div class="form-group">
-							<label for="loanAmount">Loan Amount</label>
-							<input name="loan_amount" type="number" class="form-control" id="loanAmount" aria-describedby="emailHelp">
-						</div>
-						<div class="form-group">
-							<label for="applicantIncome">Applicant Income</label>
-							<input name="applicant_income" type="number" class="form-control" id="applicantIncome" aria-describedby="emailHelp">
-						</div>
-						<div class="form-group">
-							<label for="coapplicantIncome">Co-applicant Income</label>
-							<input name="coapplicant_income" type="number" class="form-control" id="coapplicantIncome" aria-describedby="emailHelp">
-						</div>
-						<div class="form-group">
-							<label for="dependents">Dependents</label>
-							<input name="dependents" type="number" class="form-control" id="dependents" aria-describedby="emailHelp">
+							<label for="weight">Weight (pounds)</label>
+							<input name="weight" type="text" class="form-control" id="weight" aria-describedby="emailHelp">
 						</div>
 						<button type="submit" class="btn btn-primary">Predict</button>
 					</form>
@@ -81,7 +65,7 @@
 			</div>
 		</div>
 		<div class="col-md-6">
-			{% if status_predicted %}
+			{% if gender_predicted %}
 			<div class="card">
 				<div class="card-body">
 				<div id="columnchart_values" style="width: 100%;"></div>					
@@ -94,25 +78,24 @@
 	<div class="space"></div>
 
 
-	<!-- Loan Status Modal -->
-	{% if status_predicted %}
+	<!-- Gender Classifier Modal -->
+	{% if gender_predicted %}
 	<div class="modal fade" id="loanStatus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Loan Status</h5>
+	        <h5 class="modal-title" id="exampleModalLabel">Gender</h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	      	{% if status_predicted == 'Y' %}
-	      		<div class="text-center congrats">Congratulations!!!</div>
-	      		<div class="text-center status">Your loan was approved</div>
+	      	{% if gender_predicted[0] == 'Male' %}
+	      		<div class="text-center male">Male</div>
 	      	{% else %}
-	      		<div class="text-center rejects">Oops!!! Sorry</div>
-	      		<div class="text-center status">Your loan was rejected</div>
+	      		<div class="text-center female">Female</div>
 	      	{% endif %}
+
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

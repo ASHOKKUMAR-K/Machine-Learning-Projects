@@ -52,7 +52,7 @@
 						      		</div>
 						      		<div class="space"></div>
 						      		<div class="row">
-								        <button type="button" class="offset-md-4 col-md-4 launch text-center btn btn-primary">Launch Model</button>
+								        <a href="{{ url_for(ml_projects_data[17][row*3 + col]) }}" class="offset-md-4 col-md-4"><button type="button" class="launch text-center btn btn-primary">Launch Model</button></a>
 						      		</div>
 						      		<div class="space"></div>
 						      		<!-- About the Project -->
@@ -136,7 +136,7 @@
 						      		</div>
 							      </div>
 							      <div class="modal-footer">
-							        <a href="{{ url_for('loan_status_predictor') }}"><button type="button" class="btn btn-primary">Launch Model</button></a>
+							        <a href="{{ url_for(ml_projects_data[17][row*3 + col]) }}"><button type="button" class="btn btn-primary">Launch Model</button></a>
 							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 							      </div>
 							    </div>

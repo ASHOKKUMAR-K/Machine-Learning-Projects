@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}Weight Predictor{% endblock %}
+
+{% block css_links %}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'css/weight.min.css')}}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<div class="space"></div>
+	<h2 class="text-center">WEIGHT PREDICTOR</h2>
+	<div class="space"></div>
+	<div class="row">
+		<div class="offset-md-3 col-md-6">
+			<div class="card">
+				<div class="card-body">
+					<form method="POST">
+						<div class="form-group">
+							<label for="gender">Gender</label>
+							<select name="gender" class="custom-select" id="gender">
+								<option selected>Choose Gender</option>
+								<option value="1">Male</option>
+								<option value="0">Female</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="height">Height (inches)</label>
+							<input name="height" type="text" class="form-control" id="height" aria-describedby="emailHelp">
+						</div>
+						<button type="submit" class="btn btn-primary">Predict</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+
+		</div>
+	</div>
+	<div class="space"></div>
+	<div class="space"></div>
+
+
+	<!-- Gender Classifier Modal -->
+	{% if weight_predicted %}
+	<div class="modal fade" id="loanStatus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Weight Prediction</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="row">
+	      		<div class="col"><h6 class="text-center">Gender</h6></div>
+	      		<div class="col">
+	      			<h6 class="text-center">
+	      				{% if input_array[0][1] == 1.0 %}
+	      				Male
+	      				{% else %}
+	      				Female
+	      				{% endif %}		
+	      			</h6>
+	      		</div>
+	      	</div>
+	      	<div class="row">
+	      		<div class="col"><h6 class="text-center">Height in inches</h6></div>
+	      		<div class="col"><h6 class="text-center">{{ input_array[0][0] }}</h6></div>
+	      	</div>
+	      	<div class="row">
+	      		<div class="col"><h6 class="text-center">Weight in pounds</h6></div>
+	      		<div class="col"><h6 class="text-center">{{ weight_predicted[0] }}</h6></div>
+	      	</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	{% endif %}
+
+
+
+
+</div>
+
+
+{% endblock %}
+
+
+
+{% block js_scripts %}
+	<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#loanStatus').modal('show');
+    });
+</script>
+{% endblock %}

@@ -62,6 +62,8 @@
 
 .launch {
   padding: 1rem !important;
+  font-weight: bold;
+  width: 100%;
 }
 
 .project {
