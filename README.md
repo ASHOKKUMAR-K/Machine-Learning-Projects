@@ -1,5 +1,58 @@
-# Machine Learning Projects
-This repository will consists of the machine learning projects which was done by me.
+<h1 align="center">Machine Learning Projects</h1>
+
+## Table of Contents
+- [Demo](#demo)
+- [Overview](#overview)
+- [Motivation](#motivation)
+- [Technical Aspects](#technical-aspects)
+- [Installation](#installation)
+- [Run](#run)
+- [Deployment on Heroku](#deployment-on-heroku)
+- [Directory Tree](#directory-tree)
+- [To Do](#to-do)
+- [Bug / Feature Request](#bug--feature-request)
+- [Technologies Used](#technologies-used)
+- [Team](#team)
+- [License](#license)
+- [Credits](#credits)
+
+## Demo
+- App Link : [ashok-machine-learning-projects](https://ashok-machine-learning-project.herokuapp.com/)
+
+[![All Projects](Demos/main.png)](https://ashok-machine-learning-project.herokuapp.com/)
+
+## Overview
+In this repository, you can find all the Machine Learning projects which was done by me and deployed on Heroku platform. This app was built with Flask framework
+
+## Motivation
+Since I want to utilize this lockdown period usefully, I have done some projects based on Machine Learning Algorithms which makes me learning new concepts and techniques and so improving my knowledge day by day.
+
+## Technical Aspects
+
+## Installation
+
+## Run
+
+## Deployment on Heroku
+
+## Directory Tree
+
+## To Do
+
+## Bug / Feature Request
+
+## Technologies Used
+
+## Team
+
+## License
+
+## Credits
+
+
+
+
+
 
 The machine learning projects which I have done are as follows :
 1. [Iris Species Classification](#iris-classification)
