@@ -157,17 +157,13 @@ If you'd like to request a new function, feel free to do so by opening an issue 
 ## Technologies Used
 
 <a href="https://www.python.org/doc/"><img src="static/images/photos/python.png" alt="Python" height="150" width="150" margin="1.3rem"></a><a href="https://www.anaconda.com/"><img src="static/images/photos/anaconda.png" alt="Anaconda" height="150" width="150" margin="1.3rem"></a><a href="https://flask.palletsprojects.com/"><img src="static/images/photos/flask.png" alt="Flask" height="150" width="150" margin="1.3rem"></a><a href="https://matplotlib.org/3.2.2/contents.html"><img src="static/images/photos/matplotlib.jpg" alt="Matplotlib" height="150" width="250" margin="1.3rem"></a>
-<a href="https://seaborn.pydata.org/"><img src="static/images/photos/seaborn.png" alt="Seaborn" height="150" width="150"></a><a href="https://scikit-learn.org/"><img src="static/images/photos/sklearn.png" alt="scikit-learn" height="150" width="200"></a><a href="https://pandas.pydata.org/docs/"><img src="static/images/photos/pandas.png" alt="Pandas" height="150" width="150"></a><a href="https://numpy.org/doc/"><img src="static/images/photos/numpy.png" alt="NumPy" height="150" width="250"></a><a href="https://gunicorn.org/"><img src="static/images/photos/gunicorn.png" alt="gunicorn" height="250" width="150"></a>
+<a href="https://seaborn.pydata.org/"><img src="static/images/photos/seaborn.png" alt="Seaborn" height="150" width="150"></a><a href="https://scikit-learn.org/"><img src="static/images/photos/sklearn.png" alt="scikit-learn" height="150" width="200"></a><a href="https://pandas.pydata.org/docs/"><img src="static/images/photos/pandas.png" alt="Pandas" height="150" width="150"></a><a href="https://numpy.org/doc/"><img src="static/images/photos/numpy.png" alt="NumPy" height="150" width="250"></a><a href="https://gunicorn.org/"><img src="static/images/photos/gunicorn.png" alt="gunicorn" height="150" width="300"></a>
 
 
 ## Team
 [<img target="_blank" src="static/images/photos/ask.jpeg" width=200>](https://ashok-machine-learning-project.herokuapp.com/) |
 -|
 [ASHOK KUMAR K](https://ashok-machine-learning-project.herokuapp.com) |)
-
-![ASHOK KUMAR K](static/images/photos/ask.jpeg)
-
-
 
 ## License
    Copyright 2020 ASHOK KUMAR K
