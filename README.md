@@ -4,6 +4,8 @@
 - [Demo](#demo)
 - [Overview](#overview)
 - [Motivation](#motivation)
+- [Projects Done](#projects-done)
+- [Upcoming Projects](#upcoming-projects)
 - [Technical Aspects](#technical-aspects)
 - [Installation](#installation)
 - [Run](#run)
@@ -32,6 +34,23 @@ The model was deployed on Heroku platform which is a platform-as-a-service.
 While most of the students like me spending their precious time on PUBG, I decided to spend my precious time on learning to gear up my knowledge and my life. During this lockdown period I have learnt countless things related to Data Science and Machine Learning such as Data Preprocesing, Exploratory Data Analysis using NumPy and Pandas, Feature Engineering, Feature Selection, Feature Scaling, Visualization Techniques using Matplotlib and Seaborn and various Machine Learning Algorithms from scratch along with Hyper Parameter Tuning. Later I want to do some projects for the society with my knowledge. So I have started with some beginner level projects to learn some more data related concepts and techniques and step on to some advanced level projects while progressing.
 
 I always love to share my knowledge with my friends and helps on solving their coding related problems with my best and they also help me on learning new things and keeps motivating me. Though it is a small range of community, I want to share my knowledge to everyone. Whenever I wants relaxation, I write blogs to stay relevant. You can see all my blogs by clicking <a href="https://medium.com/@Ashok_kumar_K" target="_blank">here</a>.
+
+## Projects Done
+Here I have listed all the projects that I have done and strats from latest projects.
+
+| Project No |          Project Name           |  Start Date  |   End Date  |           GitHub          |         Blog          | App Link |
+|:-----------|:--------------------------------|:------------:|:-----------:|--------------------------:|----------------------:|---------:|
+| 5.         | Boston Housing Price Prediction | 10-Jul-2020  | 11-Jul-2020 |[Boston Housing](https://github.com/ASHOKKUMAR-K/Machine-Learning-Projects/tree/master/05.Boston_House_Price_Prediction)|[Boston Housing](https://medium.com/@Ashok_kumar_K/boston-housing-price-prediction-e279074f356c?source=your_stories_page---------------------------)|-|
+| 4.         | Loan Status Prediction | 01-Jul-2020  | 07-Jul-2020 |[Loan Status](https://github.com/ASHOKKUMAR-K/Machine-Learning-Projects/tree/master/02.Loan_Status_Prediction)|[Loan Status](https://medium.com/analytics-vidhya/loan-status-prediction-machine-learning-model-ca703246c7ec?source=your_stories_page---------------------------)|-|
+| 3.         | Iris Species Classification | 27-Jun-2020  | 30-Jun-2020 |[Iris Species](https://github.com/ASHOKKUMAR-K/Machine-Learning-Projects/tree/master/01.Iris_Species_Classification)|[Iris Species](https://medium.com/analytics-vidhya/iris-species-classification-machine-learning-model-8d7fa4e48f81?source=your_stories_page---------------------------)|-|
+| 2.         | Gender Classification | 18-Jan-2020  | 31-Jan-2020 |[Gender](https://github.com/ASHOKKUMAR-K/Machine-Learning-Projects/tree/master/03.Gender_Classifcation)|-|-|
+| 1.         | Weight Prediction | 12-Jan-2020  | 17-Jan-2020 |[Weight](https://github.com/ASHOKKUMAR-K/Machine-Learning-Projects/tree/master/04.Weight_Prediction)|-|-|
+
+## Upcoming Projects
+| Project No |          Project Name           |  Start Date  |   End Date  |           GitHub          |         Blog          | App Link |
+|:-----------|:--------------------------------|:------------:|:-----------:|--------------------------:|----------------------:|---------:|
+| 6.         | Mobile Price Prediction | 15-Jul-2020  | Present |[Mobile Price](#)|[Mobile Price](#)|-|
+
 
 ## Technical Aspects
 Since we can deploy atmost 5 app in Heroku as a free service, I came up with a new idea of deploying all my projects in a single web app and controlling the each projects navigation with Flask and Python.
