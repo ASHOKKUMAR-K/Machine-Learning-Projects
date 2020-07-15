@@ -21,5 +21,3 @@
 ![Boston Price Gif](../Demos/boston.gif)
 
 ## Introduction
-
-
