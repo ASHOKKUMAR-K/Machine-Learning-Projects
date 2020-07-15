@@ -1,17 +1,27 @@
 <div align="center"><h1>Iris Species Classification</h1></div>
-<div align="left"><h2>Table of Contents</h2></div>
 
+## Table of Contents
+
+- [Demo](#demo)
 - [Introduction](#introduction)
 - [Motivation](#motivation)
-- [Data Collection](#data-collection)
-- [Data Pre processing](#data-pre-processing)
-- [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
-- [Feature Observations](#feature-observations)
-- [Feature Selection](#feature-selection)
-- [Building Machine Learning Model](#building-machine-learning-model)
-- [Model Performance](#model-performance)
-- [Build Optimal Model](#build-optimal-model)
-- [Predictions](#predictions)
+- [Project Explanation](#project-explanation)
+  - [Data Collection](#data-collection)
+  - [Data Pre processing](#data-pre-processing)
+  - [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+  - [Feature Observations](#feature-observations)
+  - [Feature Selection](#feature-selection)
+  - [Building Machine Learning Model](#building-machine-learning-model)
+  - [Model Performance](#model-performance)
+  - [Build Optimal Model](#build-optimal-model)
+  - [Predictions](#predictions)
+- [Conclusion](#conclusion)
+
+## Demo
+
+**App Link** - [Iris Species Classifier](https://ashok-machine-learning-project.herokuapp.com/#iris)
+
+![Iris Gif](../Demos/iris.gif)
 
 ## Introduction
 The Iris flower data set or Fisher’s Iris data set is a multivariate data set introduced by the British statistician, eugenicist, and biologist Ronald Fisher in his 1936 paper the use of multiple measurements in taxonomic problems as an example of linear discriminant analysis.
@@ -208,10 +218,11 @@ Let's see the test data predictions
 
 <div align="center"><img src="images/predictions.png"></div>
 
-- Finally we finishes the project. 
+## Conclusion
+
+- Finally we finishes the iris classification project.
 - We have built a Decision Tree Classifier which performs well with given features petal length and petal width and having the **Training accuracy of 99.11%** and **Testing accuracy of 100%**.
 
 ### If you love my work, kindly give a Star to my repository.
 ### Facing any issues, feel free to post your issues on my GitHub.
-
 ### Thank you Everyone for seeing my work.
