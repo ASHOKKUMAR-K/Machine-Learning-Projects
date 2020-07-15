@@ -53,11 +53,13 @@
 					<form method="POST">
 						<div class="form-group">
 							<label for="height">Height (inches)</label>
-							<input name="height" type="text" class="form-control" id="height" aria-describedby="emailHelp">
+							<input name="height" type="text" class="form-control" id="height" aria-describedby="emailHelp" required="">
+							<small id="emailHelp" class="form-text text-muted">Person's Height in inches</small>
 						</div>
 						<div class="form-group">
 							<label for="weight">Weight (pounds)</label>
-							<input name="weight" type="text" class="form-control" id="weight" aria-describedby="emailHelp">
+							<input name="weight" type="text" class="form-control" id="weight" aria-describedby="emailHelp" required="">
+							<small id="emailHelp" class="form-text text-muted">Person's Weight in Pounds</small>
 						</div>
 						<button type="submit" class="btn btn-primary">Predict</button>
 					</form>

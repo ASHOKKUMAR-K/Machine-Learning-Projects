@@ -30,7 +30,7 @@
         title: "Loan Status",
         height: 450,
         bar: {groupWidth: "80%"},
-        legend: { position: "none" },
+        legend: { position: "none" }
       };
       var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
       chart.draw(view, options);
@@ -53,27 +53,31 @@
 					<form method="POST">
 						<div class="form-group">
 							<label for="creditHistory">Credit History</label>
-							<select name="credit_history" class="custom-select" id="creditHistory">
-								<option selected>Choose Credit History</option>
+							<select name="credit_history" class="custom-select" id="creditHistory" >
 								<option value="1">Yes</option>
 								<option value="0">No</option>
 							</select>
+							<small id="emailHelp" class="form-text text-muted">Applicant's Previous Credit History</small>
 						</div>
 						<div class="form-group">
 							<label for="loanAmount">Loan Amount</label>
-							<input name="loan_amount" type="number" class="form-control" id="loanAmount" aria-describedby="emailHelp">
+							<input name="loan_amount" type="number" class="form-control" id="loanAmount" aria-describedby="emailHelp" required="">
+							<small id="emailHelp" class="form-text text-muted">Loan Amount asked by the applicant</small>
 						</div>
 						<div class="form-group">
 							<label for="applicantIncome">Applicant Income</label>
-							<input name="applicant_income" type="number" class="form-control" id="applicantIncome" aria-describedby="emailHelp">
+							<input name="applicant_income" type="number" class="form-control" id="applicantIncome" aria-describedby="emailHelp" required="">
+							<small id="emailHelp" class="form-text text-muted">Applicants's present Income in dollars ($)</small>
 						</div>
 						<div class="form-group">
 							<label for="coapplicantIncome">Co-applicant Income</label>
-							<input name="coapplicant_income" type="number" class="form-control" id="coapplicantIncome" aria-describedby="emailHelp">
+							<input name="coapplicant_income" type="number" class="form-control" id="coapplicantIncome" aria-describedby="emailHelp" required="">
+							<small id="emailHelp" class="form-text text-muted">Co-applicants's present Income in dollars ($)</small>
 						</div>
 						<div class="form-group">
 							<label for="dependents">Dependents</label>
-							<input name="dependents" type="number" class="form-control" id="dependents" aria-describedby="emailHelp">
+							<input name="dependents" type="number" class="form-control" id="dependents" aria-describedby="emailHelp" required="">
+							<small id="emailHelp" class="form-text text-muted">No. of Children</small>
 						</div>
 						<button type="submit" class="btn btn-primary">Predict</button>
 					</form>

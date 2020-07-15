@@ -54,11 +54,13 @@
 					<form method="POST">
 						<div class="form-group">
 							<label for="PetalLengthCm">Petal Length (cm)</label>
-							<input name="petal_length" type="text" class="form-control" id="PetalLengthCm" aria-describedby="emailHelp">
+							<input name="petal_length" type="text" class="form-control" id="PetalLengthCm" aria-describedby="emailHelp" required="">
+							<small id="emailHelp" class="form-text text-muted">Length of the petal of iris flower</small>
 						</div>
 						<div class="form-group">
 							<label for="PetalWidthCm">Petal Width (cm)</label>
-							<input name="petal_width" type="text" class="form-control" id="PetalWidthCm" aria-describedby="emailHelp">
+							<input name="petal_width" type="text" class="form-control" id="PetalWidthCm" aria-describedby="emailHelp" required="">
+							<small id="emailHelp" class="form-text text-muted">Width of the petal of iris flower</small>
 						</div>
 						<button type="submit" class="btn btn-primary">Predict</button>
 					</form>

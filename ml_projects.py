@@ -64,7 +64,7 @@ def all_projects():
                         tools_used = tools_used)
 
 
-# LBoston House Price Predictor
+# Boston House Price Predictor
 @ml_app.route('/boston_house_price_predictor', methods = ['POST', 'GET'])
 def boston_house_price_predictor():
 

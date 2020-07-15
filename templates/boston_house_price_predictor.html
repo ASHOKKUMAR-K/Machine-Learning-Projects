@@ -19,27 +19,33 @@
 					<form method="POST">
 						<div class="form-group">
 							<label for="lstat">Lower Status Population Percentage</label>
-							<input name="lstat" type="text" class="form-control" id="lstat" aria-describedby="emailHelp">
+							<input name="lstat" type="text" class="form-control" id="lstat" aria-describedby="emailHelp" required="">
+							<small id="emailHelp" class="form-text text-muted">Percentage of Lower Status Population</small>
 						</div>
 						<div class="form-group">
 							<label for="rm">Average number of rooms per dwelling</label>
-							<input name="rm" type="text" class="form-control" id="rm" aria-describedby="emailHelp">
+							<input name="rm" type="text" class="form-control" id="rm" aria-describedby="emailHelp" required="">
+							<small id="emailHelp" class="form-text text-muted">Average number of rooms per dwelling</small>
 						</div>
 						<div class="form-group">
 							<label for="ptratio">Pupil-Teacher ratio by town</label>
-							<input name="ptratio" type="text" class="form-control" id="ptratio" aria-describedby="emailHelp">
+							<input name="ptratio" type="text" class="form-control" id="ptratio" aria-describedby="emailHelp" required="">
+							<small id="emailHelp" class="form-text text-muted">Pupil Teacher ratio by town</small>
 						</div>
 						<div class="form-group">
 							<label for="indus">Proportion of non-retail business acres per town</label>
-							<input name="indus" type="text" class="form-control" id="indus" aria-describedby="emailHelp">
+							<input name="indus" type="text" class="form-control" id="indus" aria-describedby="emailHelp" required="">
+							<small id="emailHelp" class="form-text text-muted">Proportion of non-retail business acres per town</small>
 						</div>
 						<div class="form-group">
 							<label for="tax">Full-value property-tax rate per 10,000 dollars</label>
-							<input name="tax" type="text" class="form-control" id="tax" aria-describedby="emailHelp">
+							<input name="tax" type="text" class="form-control" id="tax" aria-describedby="emailHelp" required="">
+							<small id="emailHelp" class="form-text text-muted">Full-value property-tax rate per 10,000 dollars</small>
 						</div>
 						<div class="form-group">
 							<label for="nox">Nitric Oxides concentration (parts per 10 million)</label>
-							<input name="nox" type="text" class="form-control" id="nox" aria-describedby="emailHelp">
+							<input name="nox" type="text" class="form-control" id="nox" aria-describedby="emailHelp" required="">
+							<small id="emailHelp" class="form-text text-muted">Nitric Oxides concentration (parts per 10 million)</small>
 						</div>
 						<button type="submit" class="btn btn-primary">Predict</button>
 					</form>

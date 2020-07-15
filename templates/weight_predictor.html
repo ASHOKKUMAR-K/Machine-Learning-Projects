@@ -19,15 +19,16 @@
 					<form method="POST">
 						<div class="form-group">
 							<label for="gender">Gender</label>
-							<select name="gender" class="custom-select" id="gender">
-								<option selected>Choose Gender</option>
+							<select name="gender" class="custom-select" id="gender" required="">
 								<option value="1">Male</option>
 								<option value="0">Female</option>
 							</select>
+							<small id="emailHelp" class="form-text text-muted">Person's Gender</small>
 						</div>
 						<div class="form-group">
 							<label for="height">Height (inches)</label>
-							<input name="height" type="text" class="form-control" id="height" aria-describedby="emailHelp">
+							<input name="height" type="text" class="form-control" id="height" aria-describedby="emailHelp" required="">
+							<small id="emailHelp" class="form-text text-muted">Person's Height in inches</small>
 						</div>
 						<button type="submit" class="btn btn-primary">Predict</button>
 					</form>
