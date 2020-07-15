@@ -1,20 +1,24 @@
 <h1 align="center">Loan Status Prediction</h1>
 
 # Table of Contents
-- Introduction
-- Motivation
-- Project Explanation
-  - Data Collection
-  - Feature Engineering
-  - Data Pre-processing
-  - Exploratory Data Analysis
-  - Feature Selection
-  - Building Machine Learning Models
-  - Model Performance
-  - Test data Predictions
-- Conclusion
+- [Demo](#demo)
+- [Introduction](#introduction)
+- [Motivation](#motivation)
+- [Project Explanation](#project-explanation)
+  - [Data Collection](#data-collection)
+  - [Feature Engineering](#feature-engineering)
+  - [Data Pre processing](#data-pre-processing)
+  - [Feature Selection](#feature-selection)
+  - [Building Machine Learning Models](#building-machine-learning-models)
+  - [Model Performance](#model-performance)
+  - [Building Optimum Model](#building-optimum-model)
+  - [Test data Predictions](#test-data-predictions)
+- [Conclusion](#conclusion)
 
+## Demo
+**App Link** - [Loan Status Predictor](https://ashok-machine-learning-project.herokuapp.com/#loan)
 
+![Loan Status Gif](../Demos/loan.gif)
 
 ## Introduction
 - In this Loan Status Prediction dataset, we have the data of applicants those who previously applied for the loan based on the property which is Property Loan. 
@@ -30,7 +34,7 @@
 - In this project, I have implemented various data pre-processing tecniques such as imputing null values, encoding categorical columns and handled the imbalanced data.
 
 ## Project Explanation
-### 1. Data Collection
+### Data Collection
 - The dataset is collected from [Kaggle](https://www.kaggle.com/altruistdelhite04/loan-prediction-problem-dataset).
 - The dataset which we get from kaggle consists of two CSV(Comma Separated Values) files.
   - One is Train Data (`train_u6lujuX_CVtuZ9i.csv`)
@@ -46,7 +50,7 @@ loan_train = pd.read_csv('../data/train_u6lujuX_CVtuZ9i.csv')
 - The Training data consists of 614 applicant samples and 12 features.
 - The 12 features are Loan_ID, Gender, Married, Dependents, Education, Self_Employed, ApplicanIncome, CoapplicantIncome, LoanAmount, Loan_Amount_Term, Credit_History and Property Area.
 
-### 2. Feature Engineering
+### Feature Engineering
 There are 12 features in the training data. Let's explore the features.
 
 ***Loan_ID***
@@ -203,7 +207,7 @@ From the above plot, the point we got is
 
 <h5 align="center">Hence we finished our Feature Engineering part</h5>
 
-### 3. Data Pre-processing
+### Data Pre-processing
 
 Let's implement the data preprocessing techniques such as imputing null values, encoding categorical data, etc..,
 
@@ -373,7 +377,7 @@ loan_train.drop('Property_Area', axis = 1, inplace = True)
 
 <h5 align="center">Hence we completed the pre-processing part.<h5>
   
-### 4. Feature Selection
+### Feature Selection
 
 Let's see the relation between the features.
 
@@ -411,7 +415,7 @@ prediction_features = prediction_features.index
 prediction_features = prediction_features[:5]
 ```
 
-### 5. Building Machine Learning Models
+### Building Machine Learning Models
 
 ```python
 # Extracting feature columns and prediction columns
@@ -454,7 +458,7 @@ Training Accuracy : 85.53 %
 Testing Accuracy : 85.36 %
 ```
 
-### 6. Model Perfomances
+### Model Performance
 
 Let's see the Logictic Model performance with various training samples by varying random_state in train_test_split
 
@@ -552,7 +556,7 @@ plt.show()
 
 From this Decision Tree Classifier performs well.
 
-### 6. Building Optimum Machine Learning Model
+### Building Optimum Model
 
 ```python
 # Extracting Features and Prediction column values
@@ -568,7 +572,7 @@ print("Score : ", decision_tree_model.score(feature_values, prediction_values) *
 Score :  85.34 %
 ```
 
-### 7. Test Data Predictions
+### Test Data Predictions
 
 ```python
 # Loading Test Data
@@ -591,3 +595,11 @@ loan_test.head(25)
 ```
 
 <div align="center"><img src="images/test_data_predictions.png" alt="Feature Impotances"></div>
+
+## Conclusion
+- Finally we finishes the loan status prediction project.
+- We have built a Decision Tree Classifier which performs well with selected features such as credit_history, loan_amount, applicant_income, co-applicant_income, dependents and having the Training accuracy of 85.36% and Testing accuracy of 85.54%.
+
+#### If you love my work, kindly give a Star to my repository.
+#### Facing any issues, feel free to post your issues on my GitHub.
+#### Thank you Everyone for seeing my work.
