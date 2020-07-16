@@ -17,9 +17,8 @@
   - [Feature Observations](#feature-observations)
   - [Feature Selection](#feature-selection)
   - [Building Machine Learning Models](#building-machine-learning-models)
-  - [Model Performance](#model-performance)
+  - [Model Performances](#model-performances)
   - [Building Optimum Model](#building-optimum-model)
-  - [Test data Predictions](#test-data-predictions)
 - [Conclusion](#conclusion)
 
 ## Demo
@@ -233,7 +232,7 @@ Let's arrange the features based on feature importance.
 new_boston = boston[features_arranged_on_importance]
 ```
 
-### Building Machine Learning Model
+### Building Machine Learning Models
 
 ```
 # Getting boston values
@@ -359,7 +358,7 @@ From this, we are going to choose,
 - random_state = 68, for random Random forest regressor
 - max_depth = 13, for Max Depths in random forest regressor
 
-### Building Optimal Model
+### Building Optimum Model
 
 ```python 
 # Choosing Optimal Training Samples
@@ -396,6 +395,7 @@ Root Mean Squared Error  :  2.569518849974012
 Score                    :  0.9673793783596027
 ```
 
+## Conclusion
 ##### Finally we finishes the project. We have built a Random Forest Regressor Model which performs well with top 6 features and having the Training accuracy of 97.89% and Testing accuracy of 96.73%.
 
 ##### Thank you Everyone for reading my notebook.
