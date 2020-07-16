@@ -73,7 +73,7 @@ wh = pd.read_csv('../data/weight-height.csv')
 - Gender is a **nominal** kind of **qualitative data**, because there is no numerical relation between different genders.
 - Let's see the relation of Gender with height and weight.
 
-![Height Gender](images/gender-height.png) ![Weight Distribution](images/gender-weight.png)
+![Height Gender](images/gender_height.png) ![Weight Gender](images/gender_weight.png)
 
 ### Data pre processing
 The data which we collect from kaggle is already well pre-processed. So no need of pre-processing.
