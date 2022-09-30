@@ -6,7 +6,7 @@ Flask==1.1.2
 gunicorn==20.0.4
 itsdangerous==1.1.0
 Jinja2==2.11.2
-joblib==0.14.1
+joblib==1.2.0
 json5==0.9.4
 jsonschema==3.2.0
 kiwisolver==1.2.0
