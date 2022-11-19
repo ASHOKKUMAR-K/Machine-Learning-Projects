@@ -41,5 +41,9 @@ E[Step 4 : Perform EDA by visualizing the data] --> F[Step 5 : Train ML model us
  <li><b><i>RANDOM FOREST REGRESSOR</b></i> - This is a main model which we were talikng about. We chose "Random Forest Regression Model out of all other models because we need a model which predict a proper answer in numerals rather than a classified type of result."
 </ol>
 
-    
+## Actual Values vs Predicted Values
+
+<p align="center">
+<img src= "Actual values vs Predicted Values.png" alt= "Comparison of predicted and actual values">
+
 ###  In this way we can predict the price of gold. The prediction can be done more accurately if used neural networks and huge dataset and deep learning .
